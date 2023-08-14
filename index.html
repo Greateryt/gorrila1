@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JS41</title>
+	<style>
+
+		#btn1{
+			 width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+		}
+
+		#btn1:before{
+			content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+		}
+
+		#btn1:active{
+			color: #000;
+		}
+
+		#btn1:active:after{
+			background: transparent;
+		}
+		#btn1:hover:before{
+			opacity: 1;
+		}
+
+		#btn1:hover:after{
+			 z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+		}
+
+		@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+	.text-center{
+		 background: -webkit-linear-gradient(white,white,lime,lime,white, white);
+  		-webkit-background-clip: text;
+  		margin-top: 5px;
+  		-webkit-text-fill-color: transparent;
+		font-size: 20px;
+		font-family: countryside;
+	}
+	</style>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body style="background: black;">
+	<div  id="btn" class="container">
+		<div class="row">
+			<div class="col-md-12 mt-5">
+				<button class="mt-5 mx-auto center-block d-block" id="btn1"  onclick="run()">Click here</button>
+			</div>
+		</div>
+	</div>
+	 <div id="conta" class="container" style="display: none;">
+        <div class="row">
+            <div class="col-md-12 mt-5 ">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6QHwGgi0CMqSaTRsoPUuw1r72ulkq2Impwg&usqp=CAU" class="mt-5  img-responsive img-fluid center-block d-block mx-auto" alt="Sample Image">
+                <p class="text-center center-block d-block mx-auto">dekh le bhai dekh le</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    	
+
+    	function run()
+    	{
+    		document.getElementById("btn").style.display = "none";
+    		document.getElementById("conta").style.display= "block";
+    	}
+    </script>
+</body>
+</html>
